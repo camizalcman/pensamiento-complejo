@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#060606">
+  <title>WORTH</title>
+  <meta name="description" content="Colección 01.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Inter Tight"', 'system-ui', 'sans-serif'] },
+          colors: { bg: '#060606', fg: '#f2f0eb', mute: '#8b8984', accent: '#ff6a1f' },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-sans antialiased">
+  <a href="#objetos" class="skip-link">Saltar a los objetos</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Encabezado -->
+  <header class="site-header" id="site-header">
+    <a href="#top" class="logo" aria-label="WORTH, volver al inicio">WORTH<span class="logo-dot" aria-hidden="true"></span></a>
+    <nav class="flex items-center gap-6 md:gap-10" aria-label="Principal">
+      <a href="#objetos" class="nav-link hidden sm:inline">Objetos</a>
+      <button id="cart-toggle" class="cart-toggle" aria-haspopup="dialog" aria-controls="cart" aria-label="Abrir tu selección, 0 objetos">
+        <span>Selección</span>
+        <span id="cart-count" class="cart-count" aria-hidden="true">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- 1. Inicio -->
+    <section id="top" class="hero" aria-label="Inicio">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div id="hero-field" class="hero-field" aria-hidden="true"></div>
+      <div class="relative z-10 h-full grid place-items-center pointer-events-none">
+        <h1 class="hero-title">WORTH</h1>
+      </div>
+      <div class="hero-foot">
+        <p class="label text-mute hidden sm:block">Colección 01 — Buenos Aires</p>
+        <button id="explore" class="explore">
+          <span>Explorar</span>
+          <span class="explore-line" aria-hidden="true"></span>
+        </button>
+        <p class="label text-mute hidden sm:block"><span id="hero-count">08</span> objetos</p>
+      </div>
+    </section>
+
+    <!-- Franja -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Status</span><i></i><span>Prestigio</span><i></i><span>Pertenencia</span><i></i><span>Exclusividad</span><i></i>
+        <span>Status</span><i></i><span>Prestigio</span><i></i><span>Pertenencia</span><i></i><span>Exclusividad</span><i></i>
+      </div>
+    </div>
+
+    <!-- 2. Exploración -->
+    <section id="objetos" class="catalog-section" aria-labelledby="objetos-title" tabindex="-1">
+      <div class="catalog-head">
+        <h2 id="objetos-title" class="catalog-title">Objetos</h2>
+        <p class="label text-mute"><span id="piece-count">08</span> piezas — Precios en ARS</p>
+      </div>
+      <ul id="product-grid" class="catalog" role="list"></ul>
+    </section>
+
+    <footer class="site-footer">
+      <span class="label text-mute">WORTH</span>
+      <span class="label text-mute">Colección 01 — 2026</span>
+    </footer>
+  </main>
+
+  <!-- 3. Ficha ampliada -->
+  <div id="detail" class="layer layer--center" role="dialog" aria-modal="true" aria-labelledby="detail-name" hidden>
+    <div class="layer-backdrop" data-close></div>
+    <article class="detail-panel">
+      <button id="detail-close" class="icon-btn detail-close" data-close aria-label="Cerrar ficha">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+      <div class="detail-grid">
+        <figure id="detail-media" class="detail-media"></figure>
+        <div class="detail-info">
+          <p id="detail-index" class="label text-mute"></p>
+          <h2 id="detail-name" class="detail-name"></h2>
+          <p id="detail-price" class="detail-price"></p>
+          <div class="detail-indicators">
+            <div class="ind-head" aria-hidden="true">
+              <span>Valor social</span>
+            </div>
+            <div id="detail-indicators"></div>
+          </div>
+          <div class="utility">
+            <p class="utility-label">Utilidad</p>
+            <p id="detail-utility" class="utility-text"></p>
+          </div>
+          <div class="detail-actions">
+            <button id="detail-add" class="btn btn--accent">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- 4. Carrito lateral -->
+  <div id="cart" class="layer layer--drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="layer-backdrop" data-close></div>
+    <aside class="drawer">
+      <header class="drawer-head">
+        <h2 id="cart-title" class="label">Tu selección</h2>
+        <div class="flex items-center gap-5">
+          <span id="cart-head-count" class="label text-mute"></span>
+          <button class="icon-btn" data-close aria-label="Cerrar tu selección">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+          </button>
+        </div>
+      </header>
+      <div class="drawer-body">
+        <ul id="cart-list" class="cart-list" role="list"></ul>
+        <p id="cart-empty" class="cart-empty">Todavía no hay objetos en tu selección.</p>
+
+        <div class="drawer-total">
+          <span class="label">Total</span>
+          <span id="cart-total" class="total-value">$0</span>
+        </div>
+
+        <!-- 5. Impacto social acumulado -->
+        <section class="drawer-impact" aria-labelledby="impact-title">
+          <h3 id="impact-title" class="section-title">Impacto social</h3>
+          <div id="cart-indicators"></div>
+        </section>
+      </div>
+      <footer class="drawer-foot">
+        <button id="checkout-open" class="btn btn--accent w-full">Finalizar compra</button>
+      </footer>
+    </aside>
+  </div>
+
+  <!-- 6. Confirmación -->
+  <div id="checkout" class="layer layer--center" role="alertdialog" aria-modal="true" aria-labelledby="checkout-title" aria-describedby="checkout-desc" hidden>
+    <div class="layer-backdrop layer-backdrop--strong" data-close></div>
+    <div class="checkout-panel">
+      <div class="checkout-meta">
+        <span>Operación</span>
+        <span id="checkout-ref"></span>
+      </div>
+      <h2 id="checkout-title" class="checkout-title">Confirmar operación</h2>
+      <p id="checkout-desc" class="checkout-desc">Estás a punto de modificar tu perfil:</p>
+      <div id="checkout-indicators" class="mt-6"></div>
+      <div class="checkout-total">
+        <span class="label">Total</span>
+        <span id="checkout-total" class="total-value"></span>
+      </div>
+      <div class="checkout-actions">
+        <button class="btn btn--ghost" data-close>Cancelar</button>
+        <button id="checkout-confirm" class="btn btn--accent">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Compra confirmada -->
+  <section id="final" class="layer final" role="dialog" aria-modal="true" aria-labelledby="final-title" hidden>
+    <div class="final-glow" aria-hidden="true"></div>
+    <div class="final-inner">
+      <p class="label final-dim" data-stagger>Operación <span id="final-ref"></span></p>
+      <h2 id="final-title" class="final-title" tabindex="-1" data-stagger>Compra confirmada</h2>
+      <p class="final-congrats" data-stagger>Felicidades.</p>
+      <p id="final-phrase" class="final-phrase" data-stagger></p>
+
+      <div class="final-block" data-stagger>
+        <h3 class="section-title">Nuevo perfil</h3>
+        <div id="final-indicators"></div>
+      </div>
+
+      <div class="final-total" data-stagger>
+        <span class="label">Total invertido</span>
+        <span id="final-total" class="total-value"></span>
+      </div>
+
+      <p id="final-utility" class="final-utility" data-stagger></p>
+
+      <button id="keep-improving" class="btn btn--ghost" data-stagger>Seguir mejorando</button>
+    </div>
+  </section>
+
+  <div id="live" class="sr-only" aria-live="polite"></div>
+
+  <script src="js/art.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
