@@ -273,14 +273,15 @@ body {
 }
 @media (min-width: 1024px) {
   .catalog { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 120px; }
-  .piece:nth-child(1) { grid-column: 1 / span 5; }
-  .piece:nth-child(2) { grid-column: 8 / span 4; margin-top: 180px; }
-  .piece:nth-child(3) { grid-column: 2 / span 4; }
-  .piece:nth-child(4) { grid-column: 7 / span 6; margin-top: 90px; }
-  .piece:nth-child(5) { grid-column: 1 / span 6; }
-  .piece:nth-child(6) { grid-column: 8 / span 4; margin-top: 220px; }
-  .piece:nth-child(7) { grid-column: 3 / span 4; }
-  .piece:nth-child(8) { grid-column: 8 / span 5; margin-top: 120px; }
+  /* El patrón de 8 se repite para cualquier cantidad de objetos */
+  .piece:nth-child(8n+1) { grid-column: 1 / span 5; }
+  .piece:nth-child(8n+2) { grid-column: 8 / span 4; margin-top: 180px; }
+  .piece:nth-child(8n+3) { grid-column: 2 / span 4; }
+  .piece:nth-child(8n+4) { grid-column: 7 / span 6; margin-top: 90px; }
+  .piece:nth-child(8n+5) { grid-column: 1 / span 6; }
+  .piece:nth-child(8n+6) { grid-column: 8 / span 4; margin-top: 220px; }
+  .piece:nth-child(8n+7) { grid-column: 3 / span 4; }
+  .piece:nth-child(8n+8) { grid-column: 8 / span 5; margin-top: 120px; }
 }
 
 .piece {
@@ -310,15 +311,15 @@ body {
   border: 1px solid var(--line);
   transition: border-color .6s var(--ease);
 }
-.piece:nth-child(4) .piece-media,
-.piece:nth-child(5) .piece-media { aspect-ratio: 5 / 4; }
-.piece:nth-child(4) .piece-art,
-.piece:nth-child(5) .piece-art { width: 56%; }
+.piece:nth-child(8n+4) .piece-media,
+.piece:nth-child(8n+5) .piece-media { aspect-ratio: 5 / 4; }
+.piece:nth-child(8n+4) .piece-art,
+.piece:nth-child(8n+5) .piece-art { width: 56%; }
 @media (max-width: 1023px) {
-  .piece:nth-child(4) .piece-media,
-  .piece:nth-child(5) .piece-media { aspect-ratio: 4 / 5; }
-  .piece:nth-child(4) .piece-art,
-  .piece:nth-child(5) .piece-art { width: 78%; }
+  .piece:nth-child(8n+4) .piece-media,
+  .piece:nth-child(8n+5) .piece-media { aspect-ratio: 4 / 5; }
+  .piece:nth-child(8n+4) .piece-art,
+  .piece:nth-child(8n+5) .piece-art { width: 78%; }
 }
 
 .piece-art {

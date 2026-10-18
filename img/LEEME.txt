@@ -1,16 +1,8 @@
-Poné acá las fotos de los objetos con estos nombres exactos:
+Fotos de los objetos, con el fondo ya quitado (WebP transparente, 1200 x 1200 px,
+objeto centrado). Cada archivo está referenciado en el campo "image" de js/products.js.
 
-  iphone-18-pro.png
-  rolex-submariner.png
-  air-jordan-1.png
-  airpods-max.png
-  cartera-prune.png
-  chanel-n5.png
-  ray-ban-wayfarer.png
-  stanley-quencher.png
+Para agregar o reemplazar un objeto: poné la foto acá con fondo transparente
+(sobre el fondo negro, una foto con fondo blanco se ve como un recuadro)
+y actualizá el campo "image" en js/products.js.
 
-Recomendado: PNG o WebP con fondo transparente, cuadrado (~1200 x 1200 px),
-con el objeto centrado. Sobre el fondo negro, una foto con fondo blanco se ve como un recuadro.
-
-Si un archivo no está, la web muestra la ilustración provisoria.
-Para usar otro nombre o formato, cambiá el campo "image" en js/products.js.
+Si un archivo no está, la web muestra la ilustración provisoria (si el objeto tiene "art").

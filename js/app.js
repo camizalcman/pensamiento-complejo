@@ -5,7 +5,7 @@
      Configuración
      ------------------------------------------------------------------------ */
   const INDICATORS = [
-    { key: 'status', label: 'Status' },
+    { key: 'status', label: 'Estatus' },
     { key: 'prestige', label: 'Prestigio' },
     { key: 'belonging', label: 'Pertenencia' },
     { key: 'exclusivity', label: 'Exclusividad' },
@@ -15,13 +15,13 @@
 
   const FINAL_PHRASES = {
     up: {
-      status: 'Tu status social ha aumentado.',
+      status: 'Tu estatus social ha aumentado.',
       prestige: 'Tu prestigio ha aumentado.',
       exclusivity: 'Tu nivel de exclusividad ha aumentado.',
       belonging: 'Tu sentido de pertenencia ha aumentado.',
     },
     down: {
-      status: 'Tu status social ha disminuido.',
+      status: 'Tu estatus social ha disminuido.',
       prestige: 'Tu prestigio ha disminuido.',
       exclusivity: 'Tu nivel de exclusividad ha disminuido.',
       belonging: 'Tu sentido de pertenencia ha disminuido.',

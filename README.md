@@ -19,7 +19,7 @@ img/              Fotos de los objetos (ver img/LEEME.txt)
 
 ## Imágenes
 
-Cada producto apunta a un archivo en `img/` (por ejemplo `img/rolex-submariner.png`). Si el archivo no existe, se muestra la ilustración provisoria. Conviene usar PNG/WebP con fondo transparente.
+Cada producto apunta a un archivo en `img/` (por ejemplo `img/rolex-submariner.webp`). Si el archivo no existe, se muestra la ilustración provisoria. Conviene usar PNG/WebP con fondo transparente.
 
 ## Cómo se calcula el perfil
 
